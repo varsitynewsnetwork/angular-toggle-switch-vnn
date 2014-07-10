@@ -8,7 +8,7 @@
   "homepage": "http://cgarvis.github.io/angular-toggle-switch/",
   "repository": {
     "type": "git",
-    "url": "git@github.com:varsitynewsnetwork/angular-toggle-switch.git"
+    "url": "https://github.com/varsitynewsnetwork/angular-toggle-switch-vnn.git"
   },
   "devDependencies": {
     "angular": ">=1.0",
