@@ -6,15 +6,15 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
       model: '=',
       attr_switch: '@',
       "event": '@',
-      disabled: '@',
+      disabled: '&',
       onLabel: '@',
       offLabel: '@',
       knobLabel: '@'
     },
-    template: '<div class="switch" ng-click="toggle()" ng-class="{ \'disabled\': disabled }"><div class="switch-animate" ng-class="{\'switch-off\': !model[attr_switch], \'switch-on\': model[attr_switch]}"><span class="switch-left" ng-bind="onLabel"></span><span class="knob" ng-bind="knobLabel"></span><span class="switch-right" ng-bind="offLabel"></span></div></div>',
+    template: '<div class="switch" ng-click="toggle()" ng-class="{ \'disabled\': disabled() }"><div class="switch-animate" ng-class="{\'switch-off\': !model[attr_switch], \'switch-on\': model[attr_switch]}"><span class="switch-left" ng-bind="onLabel"></span><span class="knob" ng-bind="knobLabel"></span><span class="switch-right" ng-bind="offLabel"></span></div></div>',
     controller: function($scope) {
       $scope.toggle = function toggle() {
-        if(!$scope.disabled) {
+        if(!$scope.disabled()) {
           $scope.model[$scope.attr_switch] = !$scope.model[$scope.attr_switch];
           $scope.$emit($scope.event, $scope.model);
         }
