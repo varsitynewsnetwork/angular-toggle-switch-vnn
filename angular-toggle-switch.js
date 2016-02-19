@@ -22,12 +22,12 @@
       replace: true,
       require:'ngModel',
       scope: {
-        disabled: '@',
+        disabled: '&',
         onLabel: '@',
         offLabel: '@',
         knobLabel: '@'
       },
-      template: '<div role="radio" class="toggle-switch" ng-class="{ \'disabled\': disabled }">' +
+      template: '<div role="radio" class="toggle-switch" ng-class="{ \'disabled\': disabled() }">' +
           '<div class="toggle-switch-animate" ng-class="{\'switch-off\': !model, \'switch-on\': model}">' +
           '<span class="switch-left" ng-bind="onLabel"></span>' +
           '<span class="knob" ng-bind="knobLabel"></span>' +
@@ -73,7 +73,7 @@
         };
 
         scope.toggle = function toggle() {
-          if(!scope.disabled) {
+          if(!scope.disabled()) {
             scope.model = !scope.model;
             ngModelCtrl.$setViewValue(scope.model);
           }
